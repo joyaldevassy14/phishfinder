@@ -21,7 +21,7 @@ liac-arff==2.2.2
 * [Install plugin](frontend/)
 
 ## Screenshot
-<img src="https://raw.githubusercontent.com/picopalette/phishing-detection-plugin/master/artifacts/pluginUI.png" alt="UI" height="400" width="250"></img>
+
 
 **F1 score:** 0.905
 
