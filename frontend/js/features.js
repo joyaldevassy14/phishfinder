@@ -32,7 +32,7 @@ var url = window.location.href;
 var urlLength = url.length;
 
 // Define thresholds for URL length classification
-var SHORT_URL_THRESHOLD = 50;
+var SHORT_URL_THRESHOLD = 54;
 var MEDIUM_URL_THRESHOLD = 75;
 
 // Check URL length and classify based on thresholds
@@ -179,9 +179,9 @@ var protocol = new URL(url).protocol;
 
 // Check if the protocol is HTTPS
 if (protocol && protocol.toLowerCase() === 'https:') {
-    result["HTTPS in URL's domain part"] = "1"; // HTTPS protocol detected in the domain part of the URL
+    result[" HTTPS in URL's domain"] = "1"; // HTTPS protocol detected in the domain part of the URL
 } else {
-    result["HTTPS in URL's domain part"] = "-1"; // HTTPS protocol not detected in the domain part of the URL
+    result[" HTTPS in URL's domain"] = "-1"; // HTTPS protocol not detected in the domain part of the URL
 }
 
 //---------------------- 13. Request URL ----------------------
@@ -386,8 +386,35 @@ chrome.runtime.sendMessage(result, function(response) {
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      if (request.action == "alert_user")
-        alert("Warning!!! This seems to be a phishing website.");
-      return Promise.resolve("Dummy response to keep the console quiet");
+        if (request.action == "alert_user") {
+            var style = `
+                background-color: #f8d7da;
+                border: 1px solid #f5c6cb;
+                color: #721c24;
+                padding: 30px;
+                border-radius: 10px;
+                font-size: 24px;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                width: 500px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+            `;
+            var div = document.createElement('div');
+            div.setAttribute('style', style);
+            div.innerText = "Warning!!! Phishing Website.";
+            document.body.appendChild(div);
+            
+            // Remove the dialog box after 3 seconds
+            setTimeout(function() {
+                div.remove();
+            }, 3000);
+        }
+        return Promise.resolve("Dummy response to keep the console quiet");
     }
 );
+

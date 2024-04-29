@@ -28,8 +28,8 @@ h1 {
 }
 .rounded-circle {
     background: #58bc8a;
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
     padding: 10px;
     clear: both;
     align-content: center;
@@ -41,17 +41,17 @@ h1 {
     color: white;
     font-weight: bold;
     position: relative;
-    top: 35px;
+    top: 25px;
     margin-left: 3px;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 #site_msg{
     margin-top: 20px;
     margin-bottom: 5px;
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 ul {
@@ -80,4 +80,12 @@ a {
     text-align: center;
     display: block;
     color: #195975
+}
+#logo{
+    height: 50px;
+    width: auto;
+    position: relative;
+    top:40px;
+    left: 30px;
+
 }

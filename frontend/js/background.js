@@ -36,7 +36,7 @@ function classify(tabId, result) {
     else if(result[key] == "0") suspiciousCount++;
     else legitimateCount++;
   }
-  legitimatePercents[tabId] = legitimateCount / (phishingCount+suspiciousCount+legitimateCount) * 100;
+  legitimatePercents[tabId] = (legitimateCount) / (phishingCount+suspiciousCount+legitimateCount) * 100;
 
   if(result.length != 0) {
     var X = [];
